@@ -2,30 +2,38 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">MyWEB</div>
+                <div class="card-header">Galeri</div>
 
                 <div class="card-body">
-                <a href="{!! route('kategori_artikel.create')!!}" class="btn btn-primary">
+                <a href="{!! route('galeri.create')!!}" class="btn btn-primary">
                 Tambah Data
                 </a>
                 <table border="1">
     <tr>
     <td>ID</td>
     <td>Nama</td>
+    <td>Keterangan</td>
+    <td>Path</td>
     <td>Users ID</td>
+    <td>Kategori Galeri ID</td>
     <td>Create</td>
+    
     <td>Aksi</td>
     </tr>
-    @foreach($listKategoriArtikel as $item)
+    @foreach($listGaleri as $item)
     <tr>
     <td>{!! $item->id !!}</td>
     <td>{!! $item->nama !!}</td>
+    <td>{!! $item->keterangan !!}</td>
+    <td>{!! $item->path !!}</td>
     <td>{!! $item->users_id !!}</td>
+    <td>{!! $item->kategori_galeri_id !!}</td>
     <td>{!! $item->created_at->format('d/M/Y H:i') !!}</td>
+    
     <td>
-    <a href="{!! route('kategori_artikel.show',[$item->id]) !!}" class="btn btn-primary">Lihat</a>
+    <a href="{!! route('galeri.show',[$item->id]) !!}" class="btn btn-primary">Lihat</a>
     </td>
     </tr>
     @endforeach
@@ -40,7 +48,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Kategori Artikel</title>
+    <title>Artikel</title>
 </head>
 <body>
 
